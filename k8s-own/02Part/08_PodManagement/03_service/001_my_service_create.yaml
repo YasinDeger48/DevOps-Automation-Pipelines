@@ -1,0 +1,27 @@
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: template
+#  namespace: default
+#spec:
+#  selector:
+#    app: template #poddaki app name ile aynı olmalı. O pod a hizmet etmesi için.
+#  type: LoadBalancer
+#  ports:
+#  - port: 80
+#    targetPort: 80
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: template-service
+  namespace: default
+spec:
+  selector:
+    app: template  # Deployment'taki "app: template" ile eşleşmeli
+    type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 80  # Servisin dışa açacağı port
+      targetPort: 80  # Container içindeki template portu
+  type: ClusterIP  # Cluster içi erişim için

@@ -1,0 +1,30 @@
+Create redis master controller:
+
+kubectl create -f redis-master-controller.yaml
+namespace i öğrenmek için "kubectl describe rc redis-master "
+kubectl get rc
+or
+kubectl get rc --namespace=default
+kubectl get pods
+
+Create redis master service:
+
+kubectl create -f redis-master-service.yaml
+kubectl get services
+
+Create redis replica pods:
+
+kubectl create -f redis-replica-controller.yaml
+kubectl get rc
+kubectl get pods
+
+Create redis replica service:
+
+kubectl create -f redis-replica-service.yaml
+kubectl get services
+
+Create Guestbook Pods:
+
+kubectl create -f guestbook-controller.yaml
+
+

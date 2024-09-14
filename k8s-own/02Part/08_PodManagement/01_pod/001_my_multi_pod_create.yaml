@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: template
+  labels:
+    type: backend
+    name: template
+    app: hello-pod
+spec:
+  containers:
+  - name: template
+    image: yasindeger48/template:latest
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 9090
+
+--- #3 çizgi farklı yapıları tek yerde tutulmasını sağlar.
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: template2
+  labels:
+    type: backend
+    name: template2
+    app: hello-pod2
+spec:
+  containers:
+  - name: template2
+    image: yasindeger48/template:latest
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 9091

@@ -1,0 +1,67 @@
+--Backend
+
+Creating Redis Deployment:
+
+kubectl apply -f redis-leader-deployment.yaml
+kubectl get pods
+kubectl logs -f deployment/redis-leader
+
+
+Creating Redis Leader Service:
+
+kubectl apply -f redis-leader-service.yaml
+kubectl get services
+
+Creating followers for huge demands:
+
+kubectl apply -f redis-follower-deployment.yaml
+kubectl get pods
+
+Creating follower service:
+
+kubectl apply -f redis-follower-service.yaml
+kubectl get services
+
+--Frontend
+
+Creating guestbook front-end deployment:
+
+kubectl apply -f frontend-deployment.yaml
+kubectl get pods -l app=guestbook -l tier=frontend
+
+Creating guestbook front-end service:
+
+kubectl apply -f frontend-service.yaml
+kubectl get services
+
+Access with port-forwarding:
+
+kubectl port-forward svc/frontend 8080:80
+
+
+Scale Web Frontend:
+
+Increase replica:
+
+kubectl scale deployment frontend --replicas=5
+kubectl get deployments 5/5
+kubectl get pods-->5pod visible
+
+Decrease replica:
+kubectl scale deployment frontend --replicas=2
+kubectl get deployments 2/2
+kubectl get pods -->2pod visible
+
+
+Clean up:
+
+kubectl delete deployment -l app=redis
+kubectl delete service -l app=redis
+kubectl delete deployment frontend
+kubectl delete service frontend
+
+kubectl get pods
+
+
+
+
