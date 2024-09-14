@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SeleniumTests {
     private final ChromeOptions chromeOptions = new ChromeOptions();
-    boolean isCloud = false;
+    private boolean isCloud = false;
     WebDriver driver;
     {
         String workspace = System.getenv("WORKSPACE");
