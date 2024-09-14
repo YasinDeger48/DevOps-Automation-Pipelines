@@ -1,0 +1,7 @@
+for building an image
+
+docker build -t nginx .
+
+for running the container
+
+docker run --name site -p 8091:80 nginx
