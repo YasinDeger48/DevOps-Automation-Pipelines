@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mysite-pod
+  labels:
+    app: mysite-pod
+spec:
+  containers:
+    - name: mysite-container
+      image: yasindeger48/sitelast:latest
+      ports:
+        - containerPort: 80

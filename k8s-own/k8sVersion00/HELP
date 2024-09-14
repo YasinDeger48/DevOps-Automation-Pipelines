@@ -1,0 +1,13 @@
+Step1:
+I created pod in k8s
+kubectl apply -f pod.yaml
+
+Step2:
+I created service in k8s in order to define access point
+kubectl apply -f service.yaml
+
+
+minikube tunnel
+
+
+minikube service my-service-name

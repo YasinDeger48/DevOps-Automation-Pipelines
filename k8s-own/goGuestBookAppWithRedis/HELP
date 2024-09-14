@@ -1,0 +1,48 @@
+Step1: Create the redis master pod
+
+kubectl apply -f redis-master-controller.yaml
+kubectl get rc
+kubectl get pods
+
+gcloud compute ssh --zone us-central1-b kubernetes-node-bz1p
+sudo docker ps
+
+Step2: Create the redis master service
+
+kubectl apply -f redis-master-service.yaml
+kubectl get services
+
+
+Step3: Create the redis replica pods
+
+kubectl apply -f redis-replica-controller.yaml
+kubectl get rc
+kubectl get pods
+
+Step4: Create the redis replica service
+
+kubectl apply -f redis-replica-service.yaml
+kubectl get services
+
+Step5: Create the Guestbook pods
+
+kubectl create -f guestbook-controller.yaml
+kubectl get rc
+kubectl get pods
+
+
+Step6: Create the Guestbook service
+
+kubectl create -f guestbook-service.yaml
+kubectl get services
+
+Step7: Clean up
+
+kubectl delete -f examples/guestbook-go
+guestbook-controller
+guestbook
+redid-master-controller
+redis-master
+redis-replica-controller
+redis-replica
+
