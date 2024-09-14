@@ -44,6 +44,8 @@ public class PlaywrightTests {
             System.out.println(page.title());
             assertEquals("Docker: Accelerated Container Application Development",
                     page.title());
+            page.close();
+            playwright.close();
         }
     }
 
@@ -55,14 +57,11 @@ public class PlaywrightTests {
             System.out.println(page.title());
             assertEquals("Kubernetes",
                     page.title());
+            page.close();
+            playwright.close();
         }
     }
 
-    @AfterEach
-    public void afterEach(){
-        page.close();
-        playwright.close();
-    }
 
 
 }
