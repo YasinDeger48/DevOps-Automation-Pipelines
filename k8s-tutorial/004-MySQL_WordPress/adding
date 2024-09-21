@@ -1,0 +1,20 @@
+cat <<EOF >>./kustomization.yaml
+resources:
+  - mysql-deployment.yaml
+  - wordpress-deployment.yaml
+EOF
+
+
+upper command autmatically add resources sequantally
+
+
+get secrets
+
+kubectl get secrets
+
+
+get persistentVolume
+
+kubectl get pvc
+
+
